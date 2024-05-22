@@ -1,0 +1,27 @@
+git config --local --list			查看当前的config（local>globel>system）
+git config --local user.name '' 	设置local级别的用户名
+git config --local user.email ''		设置local级别的email
+
+git add file_name			添加文件到暂存区
+git restore file_name			恢复文件夹至暂存区文件
+git add .				添加文件夹中的所有变更到暂存区
+git rm .					删除暂存区中的所有文件
+git restore .				恢复文件夹至暂存区的所有文件
+ 
+git commit -m'commit'			提交本次变更，变更注释为‘commit’
+git commit -am'commit'			工作区的变更直接提交到版本库，变更注释为‘commit‘
+git reset --hard			清除暂存区
+git reset --hard HEAD^2			恢复到两次前的提交内容
+
+mv Readme.md Readme			将Readme.md文件修改为Readme（变更文件名）
+git mv Readme.md Readme			Readme.md ->Readme 并暂存（变更文件名）
+
+git log					查看当前的git变更历史
+git log -n4				查看最近的四次提交
+git log --oneline			查看最近的四次提交并单行显示
+git log --all				查看当前所有分支的提交
+git log --all --graph			查看当前所有分支的提交及演进图示
+
+git branch -b 分支名			创建分支
+git branch -v/av				查看当前所有分支及最近提交
+git checkout -b xx			切换到xx分支
