@@ -46,3 +46,4 @@ git fetch				仅拉取远端分支,不执行融合
 git fetch <指定的分支>			拉取指定的远端分支
 git merge <分支名>			融合分支,将该分支融合进当前的分支并重新commit
 
+git remote add <name> <url>      创建一个remote，为其命名为name
