@@ -6,11 +6,13 @@ git add file_name			添加文件到暂存区
 git restore file_name			恢复文件夹至暂存区文件
 git add .				添加文件夹中的所有变更到暂存区
 git rm .				删除暂存区中的所有文件
+git rm <file>				直接在暂存区删除某个文件（可以直接改变暂存区状态而不用git add .） 
 git restore .				恢复文件夹至暂存区的所有文件
 
 commit操作： 
 git commit -m'commit'			提交本次变更，变更注释为‘commit’
 git commit -am'commit'			工作区的变更直接提交到版本库，变更注释为‘commit‘
+git reset HEAD				恢复暂存区与HEAD一致
 git reset --hard			清除暂存区
 git reset --hard HEAD^2（=HEAD~2）	恢复到两次前的提交内容
 git commit --amend			对最近一次提交的message做变更
@@ -35,9 +37,11 @@ git checkout -b <new-branch-name> <branch>	基于<branch>创建一个新分支�
 git branch -d <branch>			删除分支，d会有提示是否确认删除，D不会有
 git branch -D <branch>			↑
 
-git diff					比较工作区和暂存区的区别
+git diff				比较工作区和暂存区的区别
 git diff -- <文件1> <文件2>		指定文件的变更对比
 git diff --cached			比较暂存区和上次commit的区别
+git diff <branch> <branch>		比较两个commit之间的区别 
+git diff <branch> <branch> -- <file>	比较两个commit的某文件的区别（此处连个分支换位不同的commit号也可以，因为分支名就是分别指向这两棵树最近的commit）
 
 git remote -v				查看remote
 
@@ -46,4 +50,6 @@ git fetch				仅拉取远端分支,不执行融合
 git fetch <指定的分支>			拉取指定的远端分支
 git merge <分支名>			融合分支,将该分支融合进当前的分支并重新commit
 
-git remote add <name> <url>      创建一个remote，为其命名为name
+工作区、暂存区、版本管理库之间文件的保留&替换：
+git checkout -- file			将工作区的文件替换为暂存区的文件
+git reset HEAD file			将暂存区的文件替换为commit后的文件（可以通过空格添加多个文件）
