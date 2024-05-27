@@ -6,8 +6,10 @@ git add file_name			添加文件到暂存区
 git restore file_name			恢复文件夹至暂存区文件
 git add .				添加文件夹中的所有变更到暂存区
 git rm .				删除暂存区中的所有文件
-git rm <file>				直接在暂存区删除某个文件（可以直接改变暂存区状态而不用git add .） 
+git rm <file>				直接在暂存区删除某个文件（可以直接改变暂存区状态而不用git add .） 前提是工作区也删除了
 git restore .				恢复文件夹至暂存区的所有文件
+git restore --staged <file>		删除暂存区的文件,不改变工作区，与工作区不同时也可以执行删除
+git rm --cached <file>			删除工作区文件，但要求工作区与暂存区一致，若使用-f强行删除则工作区与暂存区均删除
 
 commit操作： 
 git commit -m'commit'			提交本次变更，变更注释为‘commit’
